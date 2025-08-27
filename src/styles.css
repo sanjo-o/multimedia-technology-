@@ -1,0 +1,46 @@
+:root {
+  --bg: #050505;
+  --muted: rgba(255,255,255,0.7);
+}
+* { box-sizing: border-box; }
+html,body,#root { height: 100%; margin: 0; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background: var(--bg); color: white; }
+
+.page-root { position: relative; min-height: 100vh; overflow: hidden; }
+
+/* Three canvas area */
+.canvas-wrap { position: fixed; inset: 0; z-index: 0; }
+
+/* UI overlays */
+.topbar {
+  position: fixed; z-index: 30; left: 0; right: 0; top: 0;
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 16px 24px; pointer-events: auto;
+  backdrop-filter: blur(6px);
+}
+.brand { font-weight:700; letter-spacing: -0.02em; opacity: 0.95; }
+.nav { display:flex; gap:12px; align-items:center; }
+.btn {
+  padding:8px 14px; border-radius:12px; border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.06); color: white; cursor:pointer;
+}
+.btn:hover { transform: translateY(-1px); }
+
+.vol { display:flex; gap:8px; align-items:center; font-size:13px; opacity:0.9; }
+.vol input[type="range"] { width:100px; }
+
+/* Hero text */
+.hero {
+  position: relative; z-index: 20;
+  display:flex; flex-direction:column; align-items:flex-start;
+  padding: 26vh 6vw 0 6vw; max-width: 1000px;
+}
+.title { font-size: clamp(28px, 6vw, 64px); margin: 0 0 8px 0; line-height: 0.95; font-weight: 700; }
+.subtitle { margin: 0 0 18px 0; opacity:0.85; max-width: 50ch; }
+
+/* Footer */
+.foot {
+  position:fixed; bottom: 20px; left: 0; right: 0; text-align:center; z-index:20; opacity:0.6; font-size:13px;
+}
+
+/* Make UI elements clickable (canvas is behind) */
+.page-root * { pointer-events: auto; }
